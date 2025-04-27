@@ -1,0 +1,104 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff; /* Белый текст */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Убираем полосы прокрутки */
+    position: relative; /* Для позиционирования фона */
+}
+
+/* Фоновый блок */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.postimg.cc/8PQ513dx/82f9bd232efb25e7b9b35e69c6b8a838.jpg'); /* Новое изображение */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Эффект размытия */
+    z-index: -1; /* Помещаем фон за основным контентом */
+}
+
+.container {
+    text-align: center;
+    z-index: 1; /* Убедимся, что контент поверх фона */
+}
+
+.center-box {
+    background-color: #333; /* Серый цвет для центрального блока */
+    border: 2px solid #444; /* Темная граница */
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень для объема */
+}
+
+/* Стили для аватарки */
+.avatar {
+    width: 100px; /* Размер аватарки */
+    height: 100px; /* Квадратная форма */
+    border-radius: 50%; /* Закругляем углы для круглой формы */
+    object-fit: cover; /* Обрезаем изображение, чтобы оно сохранило пропорции */
+    margin-bottom: 15px; /* Расстояние между аватаркой и никнеймом */
+    border: 2px solid #fff; /* Белая рамка вокруг аватарки */
+}
+
+.center-box h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* Белый цвет для ника */
+    animation: appear 2s ease-in-out; /* Анимация появления */
+}
+
+.links a {
+    display: flex;
+    align-items: center; /* Выравнивание иконки и текста по центру */
+    gap: 10px; /* Расстояние между иконкой и текстом */
+    margin: 10px 0;
+    text-decoration: none;
+    color: #ffffff; /* Белый цвет для текста ссылок */
+    font-size: 1.2rem;
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.links a:hover {
+    color: #ff6f61; /* Оранжевый цвет при наведении */
+}
+
+.links i {
+    font-size: 1.5rem; /* Размер иконок */
+    color: #ffffff; /* Белый цвет для иконок */
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.links a:hover i {
+    color: #ff6f61; /* Цвет иконок при наведении */
+}
+
+/* Анимация для ника */
+@keyframes appear {
+    0% {
+        opacity: 0; /* Начинаем с прозрачности 0 */
+        transform: translateY(-50px); /* Немного поднимаем текст вверх */
+    }
+    100% {
+        opacity: 1; /* Появляем текст */
+        transform: translateY(0); /* Возвращаем текст в исходное положение */
+    }
+}
