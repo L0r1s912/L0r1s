@@ -1,4 +1,4 @@
-/* Общие стили */
+/* Обнуление */
 * {
     margin: 0;
     padding: 0;
@@ -6,99 +6,94 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #ffffff; /* Белый текст */
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Убираем полосы прокрутки */
-    position: relative; /* Для позиционирования фона */
+    overflow: hidden;
+    background-color: #000;
+    position: relative;
 }
 
-/* Фоновый блок */
+/* Фоновое изображение */
 .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://i.postimg.cc/8PQ513dx/82f9bd232efb25e7b9b35e69c6b8a838.jpg'); /* Новое изображение */
+    background-image: url('https://i.postimg.cc/8PQ513dx/82f9bd232efb25e7b9b35e69c6b8a838.jpg');
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* Эффект размытия */
-    z-index: -1; /* Помещаем фон за основным контентом */
+    filter: blur(10px);
+    z-index: -1;
 }
 
-.container {
+/* Центральная карточка */
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px 30px;
+    width: 600px; /* шире карточка */
     text-align: center;
-    z-index: 1; /* Убедимся, что контент поверх фона */
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1s ease-in-out;
 }
 
-.center-box {
-    background-color: #333; /* Серый цвет для центрального блока */
-    border: 2px solid #444; /* Темная граница */
-    padding: 20px;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень для объема */
-}
-
-/* Стили для аватарки */
+/* Аватарка */
 .avatar {
-    width: 100px; /* Размер аватарки */
-    height: 100px; /* Квадратная форма */
-    border-radius: 50%; /* Закругляем углы для круглой формы */
-    object-fit: cover; /* Обрезаем изображение, чтобы оно сохранило пропорции */
-    margin-bottom: 15px; /* Расстояние между аватаркой и никнеймом */
-    border: 2px solid #fff; /* Белая рамка вокруг аватарки */
-}
-
-.center-box h1 {
-    font-size: 2rem;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
     margin-bottom: 20px;
-    color: #ffffff; /* Белый цвет для ника */
-    animation: appear 2s ease-in-out; /* Анимация появления */
+    border: 3px solid white;
 }
 
-.links a {
+/* Ник */
+.nickname {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Описание */
+.description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+/* Иконки соцсетей */
+.social-icons {
     display: flex;
-    align-items: center; /* Выравнивание иконки и текста по центру */
-    gap: 10px; /* Расстояние между иконкой и текстом */
-    margin: 10px 0;
-    text-decoration: none;
-    color: #ffffff; /* Белый цвет для текста ссылок */
-    font-size: 1.2rem;
-    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+    justify-content: center;
+    gap: 30px;
 }
 
-.links a:hover {
-    color: #ff6f61; /* Оранжевый цвет при наведении */
+.social-icons a {
+    color: white;
+    font-size: 2.8rem; /* увеличенные иконки */
+    padding: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.links i {
-    font-size: 1.5rem; /* Размер иконок */
-    color: #ffffff; /* Белый цвет для иконок */
-    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+.social-icons a:hover {
+    color: #ff6f61;
+    transform: scale(1.2);
 }
 
-.links a:hover i {
-    color: #ff6f61; /* Цвет иконок при наведении */
-}
-
-/* Анимация для ника */
-@keyframes appear {
-    0% {
-        opacity: 0; /* Начинаем с прозрачности 0 */
-        transform: translateY(-50px); /* Немного поднимаем текст вверх */
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    100% {
-        opacity: 1; /* Появляем текст */
-        transform: translateY(0); /* Возвращаем текст в исходное положение */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
