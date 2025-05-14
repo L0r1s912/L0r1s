@@ -1,27 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L0r1s — Профиль</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L0r1s — Профиль</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="background"></div>
+  <div class="background" id="star-container"></div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/15tFqbVX/340c0e78d9a59600c96e06c7ad2f4580.jpg" alt="Аватарка" class="avatar">
-        <h1 class="nickname">L0r1s</h1>
-        <p class="description">
-            Просто место, где собраны мои ссылки. <br>
-            Заходи, не стесняйся. <br>
-        </p>
-        <div class="social-icons">
-            <a href="https://t.me/L0r1ssss" target="_blank"><i class="fab fa-telegram"></i></a>
-            <a href="https://steamcommunity.com/profiles/76561199224820128/" target="_blank"><i class="fab fa-steam"></i></a>
-            <a href="https://discord.com/users/l0r1ss" target="_blank"><i class="fab fa-discord"></i></a>
-        </div>
+  <!-- Музыка -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3" />
+  </audio>
+
+  <button id="music-btn">🔊 Вкл</button>
+
+  <!-- Карточка -->
+  <div class="card">
+    <img
+      src="https://i.postimg.cc/nrbytb5p/Chat-GPT-Image-13-2025-22-36-32.png"
+      alt="Аватарка"
+      class="avatar"
+    />
+    <h1 class="nickname">L0r1s</h1>
+    <p class="description">
+      Просто место, где собраны мои ссылки. Заходи, не стесняйся.
+    </p>
+    <div class="social-icons">
+      <a href="https://t.me/L0r1ssss" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://steamcommunity.com/profiles/76561199224820128/" target="_blank"><i class="fab fa-steam"></i></a>
+      <a href="https://discord.com/users/l0r1ss" target="_blank"><i class="fab fa-discord"></i></a>
     </div>
+  </div>
+
+  <script>
+    // Звёзды
+    const container = document.getElementById('star-container');
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * -100}%`;
+      star.style.animationDuration = `${2 + Math.random() * 5}s`;
+      star.style.opacity = `${0.5 + Math.random() * 0.5}`;
+      container.appendChild(star);
+    }
+
+    // Музыка
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = '🔇 Выкл';
+      } else {
+        music.pause();
+        btn.textContent = '🔊 Вкл';
+      }
+    });
+  </script>
 </body>
 </html>

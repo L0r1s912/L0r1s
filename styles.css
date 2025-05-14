@@ -1,99 +1,161 @@
-/* Обнуление */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: #000;
-    position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: rgb(0, 0, 0);
+  color: white;
+  position: relative;
 }
 
-/* Фоновое изображение */
+/* Звёздный фон */
 .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.postimg.cc/8PQ513dx/82f9bd232efb25e7b9b35e69c6b8a838.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px);
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
-/* Центральная карточка */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Кнопка управления музыкой */
+#music-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background: rgba(32, 32, 32, 0.5);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+#music-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Карточка */
 .card {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    padding: 40px 30px;
-    width: 600px; /* шире карточка */
-    text-align: center;
-    color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 1s ease-in-out;
+  background: rgba(41, 40, 40, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px 30px;
+  width: 600px;
+  max-width: 90vw;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Аватарка */
 .avatar {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid white;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid white;
 }
 
-/* Ник */
 .nickname {
-    font-size: 2rem;
-    margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
-/* Описание */
 .description {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 25px;
-    color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  color: #ddd;
 }
 
-/* Иконки соцсетей */
+/* Социальные иконки */
 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
-    color: white;
-    font-size: 2.8rem; /* увеличенные иконки */
-    padding: 10px;
-    transition: transform 0.3s ease, color 0.3s ease;
+  color: white;
+  font-size: 2.8rem;
+  padding: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #ff6f61;
-    transform: scale(1.2);
+  color: #ff6f61;
+  transform: scale(1.2);
 }
 
-/* Анимация появления */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .card {
+    padding: 30px 20px;
+  }
+
+  .nickname {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .social-icons a {
+    font-size: 2.2rem;
+    padding: 8px;
+  }
+
+  #music-btn {
+    top: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
 }
