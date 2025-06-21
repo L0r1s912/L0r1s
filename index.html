@@ -8,26 +8,32 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Прелоадер -->
+  <div id="preloader">
+    <div class="loader">
+      <span>L</span>
+      <span>0</span>
+      <span>r</span>
+      <span>1</span>
+      <span>s</span>
+    </div>
+  </div>
+
+  <!-- Звёздный фон -->
   <div class="background" id="star-container"></div>
 
   <!-- Музыка -->
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3" />
   </audio>
-
   <button id="music-btn">🔊 Вкл</button>
 
   <!-- Карточка -->
   <div class="card">
-    <img
-      src="https://i.postimg.cc/nrbytb5p/Chat-GPT-Image-13-2025-22-36-32.png"
-      alt="Аватарка"
-      class="avatar"
-    />
+    <img src="https://i.postimg.cc/nrbytb5p/Chat-GPT-Image-13-2025-22-36-32.png" alt="Аватарка" class="avatar"/>
     <h1 class="nickname">L0r1s</h1>
-    <p class="description">
-      Просто место, где собраны мои ссылки. Заходи, не стесняйся.
-    </p>
+    <p class="description">Просто место, где собраны мои ссылки. Заходи, не стесняйся.</p>
     <div class="social-icons">
       <a href="https://t.me/L0r1ssss" target="_blank"><i class="fab fa-telegram"></i></a>
       <a href="https://steamcommunity.com/profiles/76561199224820128/" target="_blank"><i class="fab fa-steam"></i></a>
@@ -36,7 +42,7 @@
   </div>
 
   <script>
-    // Звёзды
+    // Звезды
     const container = document.getElementById('star-container');
     for (let i = 0; i < 150; i++) {
       const star = document.createElement('div');
@@ -51,7 +57,6 @@
     // Музыка
     const music = document.getElementById('bg-music');
     const btn = document.getElementById('music-btn');
-
     btn.addEventListener('click', () => {
       if (music.paused) {
         music.play();
@@ -61,6 +66,15 @@
         btn.textContent = '🔊 Вкл';
       }
     });
+
+    // Прелоадер — исчезает через 3.5 сек
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600); // время затухания
+    }, 3500); // время показа прелоадера
   </script>
 </body>
 </html>
